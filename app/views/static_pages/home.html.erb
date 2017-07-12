@@ -1,0 +1,20 @@
+<% if logged_in? %>
+    <%= gravatar_for current_user %>
+    <%= render 'shared/post_form' %>
+    <h3>Post Feed</h3>
+    <%= render 'shared/feed' %>
+<% else %>
+    <% provide(:pagetype, 'splash') %>
+
+    <div class="jumbotron">
+        <%= image_tag("logo.png", alt: "SciStorm logo", title: "Please excuse bugs; we're currently in beta!") %>
+        <h3><%= link_to ["Tenacious memes for technically inclined teens", "We really need to come up with an actual tagline", "Help I'm trapped in an <h3> factory"].sample, abt_path %></h3>
+        <div>
+            <%= link_to "Sign Up", su_path, class: 'btn' %>
+            <%= link_to "Log In", li_path %>
+        </div>
+    </div>
+    <div class="article-list">
+
+    </div>
+<% end %>

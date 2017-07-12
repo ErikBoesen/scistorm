@@ -1,0 +1,283 @@
+@font-face {
+    font-family: 'Nunito Sans';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Nunito Sans Regular'), local('NunitoSans-Regular'), url('https://fonts.gstatic.com/s/nunitosans/v1/iJ4p9wO0GDKJ-D5teKuZqogp9Q8gbYrhqGlRav_IXfk.woff2') format('woff2');
+    unicode-range: U+0000-00FF;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html,
+body {
+    height: 100%;
+}
+body {
+    background-color: #fff;
+    color: #333;
+    font-family: 'Nunito Sans', Helvetica, sans-serif;
+    font-size: 13px;
+    line-height: 18px;
+}
+a {
+    color: inherit;
+    &:hover {
+        text-decoration: none;
+    }
+}
+.alert {
+    margin: 10px 0 20px;
+    padding: 20px;
+    position: absolute;
+    left: 100px;
+    top: 10px;
+}
+.alert p {
+    margin: 10px;
+}
+.alert-success {
+    border: solid 1px #29cf5d;
+    background: #bdffc1;
+    color: #398a48;
+    width: 5in;
+}
+.alert-info {
+    border: solid 1px #2989cf;
+    background: #bdebff;
+    color: #39798a;
+}
+.alert-danger {
+    border: 2px solid red;
+    padding: 7px;
+    margin-bottom: 20px;
+    background: #ffa7a7;
+    color: #b91b1b;
+}
+.alert-danger ul {
+    margin: 0 0 10px 30px;
+}
+
+label {
+    display: block;
+}
+.jumbotron {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+}
+footer {
+    width: 100%;
+    text-align: center;
+    padding: 20px;
+}
+
+input {
+    display: block;
+}
+
+.new_post {
+    margin: 30px 0;
+    width: 5in;
+    .bubble-arrow {
+        width: 10px;
+        height: 10px;
+        background: white;
+        margin-left: 35px;
+        border: solid 1px #ddd;
+        transform: rotate(45deg);
+        margin-bottom: -5px;
+        z-index: -10;
+        position: relative;
+    }
+    .bubble-shadow {
+        content: '';
+        width: 8px;
+        height: 8px;
+        background: white;
+        margin-left: 36px;
+        transform: rotate(45deg);
+        margin-bottom: -10px;
+        top: -4px;
+        z-index: 12;
+        position: relative;
+    }
+    textarea {
+        z-index: 10;
+        border: solid 1px #ddd;
+        font: inherit;
+        // Correct for automatic margin below textarea, which varies by browser
+        vertical-align: top;
+        resize: none;
+        width: 100%;
+        height: 100px;
+        padding: 15px;
+        outline: 0;
+        margin: 0;
+        border-bottom: none;
+
+
+        &::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+            color: #ccc;
+        }
+        &:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+           color: #ccc;
+           opacity:  1;
+        }
+        &::-moz-placeholder { /* Mozilla Firefox 19+ */
+           color: #ccc;
+           opacity:  1;
+        }
+        &:-ms-input-placeholder { /* Internet Explorer 10-11 */
+           color: #ccc;
+        }
+    }
+    .btn {
+        margin-right: -4px;
+        width: 93%;
+        display: inline-block;
+        vertical-align: top;
+    }
+
+    input[type="file"] {
+        display: none;
+    }
+    .photo-upload-button {
+        color: white;
+        font-family: 'icons';
+        display: inline-block;
+        background-color: #1268b6;
+        padding: 6.5px;
+        outline: none;
+        cursor: pointer;
+        width: 7.1%;
+        vertical-align: top;
+    }
+    input[type="file"].full + .photo-upload-button {
+        background-color: #22d534;
+    }
+
+
+}
+
+.user-info {
+    > * {
+        display: inline-block;
+        vertical-align: top;
+    }
+    .names {
+        margin-left: 8px;
+        margin-top: 6px;
+        border-right: solid 1px #ddd;
+        padding-right: 10px;
+    }
+    .stats {
+        margin-left: 10px;
+        margin-top: 10px;
+        * {
+            display: inline;
+        }
+        a {
+            display: block;
+        }
+    }
+    h1 {
+        margin: 0;
+    }
+    .follow-form {
+        margin-top: 20px;
+        margin-left: 20px;
+    }
+    .btn.unfollow {
+        color: white;
+        background-color: #1268b6;
+        border-color: #1268b6;
+    }
+    .btn.unfollow:hover {
+        color: #1268b6;
+        background-color: transparent;
+    }
+}
+
+.posts {
+    margin-top: 20px;
+    list-style-type: none;
+    li {
+        border-top: solid 1px #ddd;
+        padding-top: 20px;
+        max-width: 5in;
+    }
+    .user {
+        > * {
+            vertical-align: top;
+            display: inline-block;
+        }
+        a {
+            text-decoration: none;
+        }
+        .gravatar {
+            margin-top: 1px;
+        }
+        div * {
+            display: block;
+            margin-left: 5px;
+        }
+        div span {
+            display: inline;
+            color: #666;
+        }
+        .icon-clock {
+            margin-left: 2px;
+        }
+        .timestamp {
+            margin-left: -2px;
+        }
+    }
+    .content {
+        display: block;
+        margin: 10px 0;
+    }
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border: 2px solid #aaa;
+    border-radius: 50%;
+    float: left;
+    margin: 0 5px;
+    transform: scale(0);
+    animation: fx 1000ms ease infinite 0;
+}
+
+.dot:nth-child(2) {
+    animation: fx 1000ms ease infinite 300ms;
+}
+
+.dot:nth-child(3) {
+    animation: fx 1000ms ease infinite 600ms;
+}
+@-webkit-keyframes fx {
+    50% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+@keyframes fx {
+    50% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}

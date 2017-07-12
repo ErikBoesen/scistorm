@@ -1,0 +1,314 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+body.splash article {
+    padding: 0;
+}
+body.splash h3 a {
+    text-decoration: none;
+}
+body.form {
+    background-size: cover;
+    background-position: left;
+    background-color: #333;
+    background-repeat: no-repeat;
+    color: white;
+}
+body.form .btn {
+    background: white;
+    border-color: white;
+    color: #333;
+}
+body.form .btn:hover {
+    background: transparent;
+    color: white;
+}
+body.light {
+    background-color: white;
+    color: #333;
+}
+body.light input[type="email"],
+body.light input[type="text"],
+body.light input[type="password"] {
+    border-left-color: #333;
+    color: #333;
+    background-color: rgba(51, 51, 51, 0.05)
+}
+body.column article {
+    max-width: 8in;
+    margin: 0 auto;
+}
+body.column p {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 30px;
+}
+h3 {
+    font-family: 'Nunito Sans', Helvetica, sans-serif;
+    font-size: 2em;
+    letter-spacing: 2px;
+    margin-bottom: 30px;
+}
+nav {
+    top: 0;
+    margin: 0;
+    right: -120vw;
+    background: #333;
+    color: white;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    overflow: scroll;
+    transition: .2s;
+    z-index: 100;
+}
+nav.open {
+    right: 0;
+    transition: .3s;
+}
+nav > ul {
+    margin: 0;
+    padding: 20px;
+    padding-bottom: 20px;
+    right: auto;
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+}
+nav li {
+    display: block;
+    clear: both;
+    line-height: 1;
+    border-left: solid 4px white;
+    padding-left: 20px;
+}
+nav li:last-of-type {
+    margin-bottom: 15px;
+}
+nav ul ul {
+    display: block;
+    position: static;
+}
+nav ul ul li {
+    margin-left: 20px;
+    padding-left: 10px;
+}
+nav li:hover {
+    background: #333;
+}
+nav li > * {
+    font-size: 50px;
+    display: inline-block;
+    padding: 10px 0;
+    vertical-align: middle;
+}
+nav a {
+    transform: translateZ(0);
+    position: relative;
+    overflow: hidden;
+    text-decoration: none;
+}
+nav .active {
+    background: #333;
+}
+nav .active:hover {
+    background: #333;
+}
+nav .active a {
+    color: white;
+}
+nav a:after {
+    content: '';
+    position: absolute;
+    right: 100%;
+    left: 0;
+    bottom: 0;
+    background: white;
+    height: 4px;
+    transition: .3s ease-out;
+}
+nav a:hover:after,
+nav a:focus:after,
+nav a:active:after {
+    right: 0;
+}
+nav .active:after {
+    right: 0;
+}
+nav > ul > li:last-child ul {
+    margin-left: 0;
+}
+#nav-button {
+    background: #333;
+    border: solid 20px #333;
+    width: 90px;
+    height: 80px;
+    position: fixed;
+    top: 0;
+    right: 0;
+    transform: rotate(0);
+    transition: .5s ease-in-out;
+    cursor: pointer;
+    z-index: 200;
+}
+#nav-button span {
+    display: block;
+    position: absolute;
+    height: 2px;
+    width: 100%;
+    background: white;
+    opacity: 1;
+    left: 0;
+    transform: rotate(0);
+    transition: .25s ease-in-out;
+}
+#nav-button span:nth-child(1) {
+    top: 0;
+}
+#nav-button span:nth-child(2) {
+    top: 18px;
+}
+#nav-button span:nth-child(3) {
+    top: 36px;
+}
+#nav-button.open span:nth-child(1) {
+    top: 18px;
+    transform: rotate(-135deg);
+}
+#nav-button.open span:nth-child(2) {
+    opacity: 0;
+    right: -60px;
+}
+#nav-button.open span:nth-child(3) {
+    top: 18px;
+    transform: rotate(135deg);
+}
+.btn {
+    border: solid 2px #333;
+    background: #333;
+    color: white;
+    padding: 7px 10px;
+    text-decoration: none;
+    transition: .2s;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+.btn:hover {
+    background: transparent;
+    color: #333;
+    transition: .3s;
+}
+.jumbotron div a:last-of-type {
+    padding: 7px 10px;
+    text-decoration: none;
+}
+article {
+    padding: 100px;
+}
+h1 {
+    font-size: 50px;
+    line-height: 1;
+    margin-bottom: 20px;
+}
+form {
+    width: 170px;
+}
+input {
+    width: 100%;
+}
+input[type="email"],
+input[type="text"],
+input[type="password"] {
+    background: rgba(255, 255, 255, 0.5);
+    color: white;
+    border: none;
+    border-left: solid 3px white;
+    padding: 5px;
+    margin-bottom: 10px;
+    font: inherit;
+    transition: .3s;
+}
+input[type="email"]:focus,
+input[type="text"]:focus,
+input[type="password"]:focus {
+    outline: none;
+    transition: .3s;
+}
+.field_with_errors input {
+    border-left-color: #ff3030;
+}
+label {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 7px;
+}
+label input {
+    width: 15%;
+}
+label f {
+    width: 80%;
+    margin-top: -2px;
+}
+/* Memo to browser developers: for the love of god, implement unrecognized selector portion tolerance */
+::-webkit-input-placeholder {
+    /* Webkit + derivatives */
+    color: white;
+    opacity: 0.7;
+}
+:-moz-placeholder {
+    /* FF 4-18 */
+    color: white;
+    opacity: 0.7;
+}
+::-moz-placeholder {
+    /* FF 19+ */
+    color: white;
+    opacity: 0.7;
+}
+:-ms-input-placeholder {
+    /* IE 10-11 */
+    color: white;
+    opacity: 0.7;
+}
+/* Placeholder text on light colored pages */
+body.light ::-webkit-input-placeholder {
+    /* Webkit + derivatives */
+    color: #666;
+    opacity: 0.7;
+}
+body.light :-moz-placeholder {
+    /* FF 4-18 */
+    color: #666;
+    opacity: 0.7;
+}
+body.light ::-moz-placeholder {
+    /* FF 19+ */
+    color: #666;
+    opacity: 0.7;
+}
+body.light :-ms-input-placeholder {
+    /* IE 10-11 */
+    color: #666;
+    opacity: 0.7;
+}
+input[type="image"] {
+    width: auto;
+}
+@media (max-width: 600px) {
+    article {
+        padding: 20px;
+    }
+}
