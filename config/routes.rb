@@ -16,9 +16,9 @@ Rails.application.routes.draw do
     delete 'lo'             => 'sessions#destroy'
     match '404', :to => 'errors#not_found', :via => :all
     match '500', :to => 'errors#internal_server_error', :via => :all
-    get ':username'         => 'users#show' # Handle anything else (assume it's a user's profile)
-    get ':username/edit'    => 'users#edit'
-    patch ':username'       => 'users#update'
+    get '/u/:username'         => 'users#show' # Handle anything else (assume it's a user's profile)
+    get '/u/:username/edit'    => 'users#edit'
+    patch '/u/:username'       => 'users#update'
     resources :users do
         member do
             get :following, :followers

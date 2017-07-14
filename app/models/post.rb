@@ -1,10 +1,13 @@
 class Post < ApplicationRecord
   belongs_to :user
+  belongs_to :community
   default_scope -> { order(created_at: :desc) }
   mount_uploader :picture, PictureUploader
   validates :user_id, presence: true
   validates :content, presence: true
   validate  :picture_size
+
+  acts_as_votable
 
   private
 
@@ -14,4 +17,5 @@ class Post < ApplicationRecord
         errors.add(:picture, "should be less than 5MB")
       end
     end
+
 end
