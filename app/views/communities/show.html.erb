@@ -3,6 +3,7 @@
 <p>
   <strong>Name:</strong>
   <%= @community.name %>
+  <%= render @community.posts %>
 </p>
 
 <%= link_to 'Edit', edit_community_path(@community) %> |
