@@ -37,8 +37,14 @@ following.each { |followed| user.follow(followed) }
 followers.each { |follower| follower.follow(user) }
 
 
-99.times do |n|
+Community.create!(name: "Computer Science",
+                  description: "A place for discussion of any and all topics related to Computer Science. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate.",
+                  photo: "http://i.imgur.com/1H9Ht5a.png",
+                  created_at: Time.zone.now)
+
+10.times do |n|
     Community.create!(name: "Community #{n}",
+                      description: Faker::Lorem.sentence(25),
                       created_at: Time.zone.now)
 end
 

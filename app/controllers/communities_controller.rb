@@ -4,12 +4,14 @@ class CommunitiesController < ApplicationController
   # GET /communities
   # GET /communities.json
   def index
-    @communities = Community.all
+      @communities = Community.all
   end
 
   # GET /communities/1
   # GET /communities/1.json
   def show
+      # Generate list of posts on that community
+      @posts = @community.posts.paginate(page: params[:page])
   end
 
   # GET /communities/new
