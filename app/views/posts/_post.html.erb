@@ -1,6 +1,7 @@
 <li id="post-<%= post.id %>">
     <div class="votes">
-        
+        <div class="upvote"></div>
+        <div class="downvote"></div>
     </div>
     <span class="user">
         <%= link_to gravatar_for(post.user, size: 50), post.user %>

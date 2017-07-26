@@ -28,4 +28,6 @@
 
 .DS_Store
 
+vendor
+
 app/assets/images/uploads/*

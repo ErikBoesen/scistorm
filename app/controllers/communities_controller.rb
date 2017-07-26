@@ -11,6 +11,8 @@ class CommunitiesController < ApplicationController
   # GET /communities/1.json
   def show
       # Generate list of posts on that community
+      @post = @community.posts.build
+      @post.user_id = current_user.id
       @posts = @community.posts.paginate(page: params[:page])
   end
 
