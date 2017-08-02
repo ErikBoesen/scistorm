@@ -1,27 +1,19 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Communities</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
+<div class="grid">
     <% @communities.each do |community| %>
-      <tr>
-        <td><%= community.name %></td>
-        <td><%= link_to 'Show', community %></td>
-        <td><%= link_to 'Edit', edit_community_path(community) %></td>
-        <td><%= link_to 'Destroy', community, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+    <div>
+        <%# TODO: Use link_to %>
+        <a href="<%= community_path(community) %>">
+            <div class="community-photo" style="background-image: url(<%= community.photo ? community.photo : 'assets/community.png' %>)"></div>
+            <h5><%= community.name %></h5>
+        </a>
+        <p><%= community.description %></p>
+        <p><%= link_to 'Edit', edit_community_path(community) %></p>
+        <p><%= link_to 'Destroy', community, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+    </div>
     <% end %>
-  </tbody>
-</table>
-
-<br>
+</div>
 
 <%= link_to 'New Community', new_community_path %>

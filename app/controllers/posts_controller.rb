@@ -9,7 +9,7 @@ class PostsController < ApplicationController
     @post = current_user.posts.build(post_params)
     if @post.save
       flash[:success] = "Post created."
-      redirect_to :back
+      redirect_back
     else
       @feed_items = []
       render 'static_pages/home'
@@ -18,9 +18,19 @@ class PostsController < ApplicationController
 
   def destroy
     @post.destroy
-    flash[:success] = "Post deleted"
+    flash[:success] = "Post deleted."
     redirect_to request.referrer || root_url
   end
+
+    def like
+        @post = Post.find(params[:id])
+        @post.liked_by current_user
+    end
+
+    def dislike
+        @post = Post.find(params[:id])
+        @post.disliked_by current_user
+    end
 
   private
 

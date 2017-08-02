@@ -1,3 +1,33 @@
-// Place all the styles related to the Communities controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.grid {
+    text-align: center;
+}
+.grid > div {
+    width: 3in;
+    display: inline-block;
+    vertical-align: top;
+    margin: 10px;
+    text-align: left;
+    width: 4in;
+    box-shadow: 0 0 20px rgba(51, 51, 51, 0.0);
+    padding-bottom: 10px;
+}
+.grid div > a {
+    text-decoration: none;
+}
+.grid .community-photo {
+    width: 100%;
+    height: 3in;
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 10px;
+}
+.grid h5,
+.grid p {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.grid h5 {
+    font-size: 40px;
+    line-height: 1;
+    margin: 10px 0;
+}

@@ -1,4 +1,5 @@
 # Users
+puts "Creating users..."
 User.create!(name:  "Example User",
              username: "example",
              email: "example@railstutorial.org",
@@ -22,6 +23,7 @@ User.create!(name:  "Example User",
 end
 
 # Posts
+puts "Creating posts..."
 users = User.order(:created_at).take(6)
 50.times do
   content = Faker::Lorem.sentence(5)
@@ -29,6 +31,7 @@ users = User.order(:created_at).take(6)
 end
 
 # Following relationships
+puts "Creating relationships..."
 users = User.all
 user  = users.first
 following = users[2..50]
@@ -36,7 +39,7 @@ followers = users[3..40]
 following.each { |followed| user.follow(followed) }
 followers.each { |follower| follower.follow(user) }
 
-
+puts "Creating communities..."
 Community.create!(name: "Computer Science",
                   description: "A place for discussion of any and all topics related to Computer Science. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate.",
                   photo: "http://i.imgur.com/1H9Ht5a.png",
@@ -48,12 +51,13 @@ Community.create!(name: "Computer Science",
                       created_at: Time.zone.now)
 end
 
+puts "Creating community posts..."
 users = User.order(:created_at).take(5)
 communities = Community.order(:created_at).take(5)
 
 communities.each { |community|
-    users.each {
+    users.each { |user|
         content = Faker::Lorem.sentence(5)
-        users.each { |user| community.posts.create!(user_id: user.id, content: content) }
+        community.posts.create!(user_id: user.id, content: content)
     }
 }

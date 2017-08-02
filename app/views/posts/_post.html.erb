@@ -3,6 +3,12 @@
         <div class="upvote"></div>
         <div class="downvote"></div>
     </div>
+    <%= link_to "Dislike", dislike_post_path(post), class: 'vote', method: :put %>
+    <%= link_to "Like", like_post_path(post), class: 'vote', method: :put %>
+    <span> · </span>
+
+    <%= post.get_likes.size %> users like this
+
     <span class="user">
         <%= link_to gravatar_for(post.user, size: 50), post.user %>
         <div>

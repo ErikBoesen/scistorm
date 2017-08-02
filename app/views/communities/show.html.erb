@@ -1,8 +1,8 @@
 <% provide(:title, @community.name) %>
 <div class="community-info">
-    <%= image_tag(@community.photo, alt: "#{@community.name}'s header photo'") %>
+    <%= image_tag(@community.photo ? @community.photo : '/assets/community.png', alt: "#{@community.name}'s header photo'") %>
     <h1><%= @community.name %></h1>
-    <p><%= @community.description %>
+    <p><%= @community.description %></p>
     <%# TODO: Only show/allow for privileged users  %>
     <%= link_to 'Edit', edit_community_path(@community) %>
 </div>
