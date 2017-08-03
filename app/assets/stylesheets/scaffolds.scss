@@ -159,8 +159,6 @@ input {
     input[type="file"].full + .photo-upload-button {
         background-color: #22d534;
     }
-
-
 }
 
 .user-info {
@@ -217,57 +215,44 @@ input {
         border-top: solid 1px #ddd;
         padding-top: 20px;
         max-width: 5in;
-    }
-    .votes {
-        float: left;
-        margin-right: 20px;
-        * {
-            width: 0;
-            height: 0;
-            border: solid 20px transparent;
-            border-right-width: 15px;
-            border-left-width: 15px;
+        .user {
+            > * {
+                vertical-align: top;
+                display: inline-block;
+            }
+            a {
+                text-decoration: none;
+            }
+            .gravatar {
+                margin-top: 1px;
+            }
+            div * {
+                display: block;
+                margin-left: 5px;
+            }
+            div span {
+                display: inline;
+                color: #666;
+            }
+            .icon-clock {
+                margin-left: 2px;
+            }
+            .timestamp {
+                margin-left: -2px;
+            }
         }
-        .upvote {
-            border-bottom-color: grey;
-            border-top-width: 0;
-            margin-bottom: 10px;
-        }
-        .downvote {
-            border-top-color: grey;
-            border-bottom-width: 0;
-            margin-top: 10px;
-        }
-    }
-    .user {
-        > * {
-            vertical-align: top;
-            display: inline-block;
-        }
-        a {
-            text-decoration: none;
-        }
-        .gravatar {
-            margin-top: 1px;
-        }
-        div * {
+        .content {
             display: block;
-            margin-left: 5px;
+            margin: 10px 0;
         }
-        div span {
-            display: inline;
-            color: #666;
+        [class^="icon-"]:before, [class*=" icon-"]:before {
+            font-size: 16px;
         }
-        .icon-clock {
-            margin-left: 2px;
+        .vote-count {
+            margin-right: 3px;
+            border-right: solid 1px #ddd;
+            padding-right: 10px;
         }
-        .timestamp {
-            margin-left: -2px;
-        }
-    }
-    .content {
-        display: block;
-        margin: 10px 0;
     }
 }
 

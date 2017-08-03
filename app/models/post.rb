@@ -1,6 +1,6 @@
 class Post < ApplicationRecord
-  belongs_to :user
-  belongs_to :community
+  belongs_to :user, foreign_key: 'user_id'
+  belongs_to :community, foreign_key: 'community_id'
   default_scope -> { order(created_at: :desc) }
   mount_uploader :picture, PictureUploader
   validates :user_id, presence: true

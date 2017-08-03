@@ -27,7 +27,6 @@ Rails.application.routes.draw do
     resources :posts do
         member do
             put 'like'	    => 'posts#like'
-            put 'dislike'   => 'posts#dislike'
         end
     end
     resources :posts, only: [:put, :create, :destroy]

@@ -7,9 +7,10 @@ class PostsController < ApplicationController
 
   def create
     @post = current_user.posts.build(post_params)
+    puts @post.community_id
     if @post.save
       flash[:success] = "Post created."
-      redirect_back
+      redirect_back_or root_url
     else
       @feed_items = []
       render 'static_pages/home'
@@ -24,12 +25,17 @@ class PostsController < ApplicationController
 
     def like
         @post = Post.find(params[:id])
-        @post.liked_by current_user
-    end
+        if current_user.liked? @post
+            @post.unliked_by current_user
+        else
+            @post.liked_by current_user
+        end
 
-    def dislike
-        @post = Post.find(params[:id])
-        @post.disliked_by current_user
+        if request.xhr?
+            render json: { count: @post.get_likes.size, id: params[:id] }
+        else
+            redirect_to @post
+        end
     end
 
   private
