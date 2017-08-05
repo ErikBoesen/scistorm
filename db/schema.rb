@@ -10,11 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170716232930) do
+ActiveRecord::Schema.define(version: 20170804013858) do
 
   create_table "articles", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.text     "content"
+    t.integer  "post_id"
+    t.integer  "user_id"
+    t.integer  "article_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["article_id"], name: "index_comments_on_article_id"
+    t.index ["created_at"], name: "index_comments_on_created_at"
+    t.index ["post_id", "user_id", "article_id"], name: "index_comments_on_post_id_and_user_id_and_article_id"
+    t.index ["post_id"], name: "index_comments_on_post_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "communities", force: :cascade do |t|
@@ -33,13 +47,13 @@ ActiveRecord::Schema.define(version: 20170716232930) do
   create_table "posts", force: :cascade do |t|
     t.text     "content"
     t.string   "photo"
-    t.integer  "user_id"
     t.integer  "community_id"
+    t.integer  "user_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.index ["community_id", "user_id"], name: "index_posts_on_community_id_and_user_id"
     t.index ["community_id"], name: "index_posts_on_community_id"
     t.index ["created_at"], name: "index_posts_on_created_at"
-    t.index ["user_id", "community_id"], name: "index_posts_on_user_id_and_community_id"
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 

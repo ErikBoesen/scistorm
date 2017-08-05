@@ -7,7 +7,6 @@ class PostsController < ApplicationController
 
   def create
     @post = current_user.posts.build(post_params)
-    puts @post.community_id
     if @post.save
       flash[:success] = "Post created."
       redirect_back_or root_url

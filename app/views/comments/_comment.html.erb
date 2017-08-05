@@ -1,0 +1,26 @@
+<li id="comment-<%= comment.id %>">
+    <span class="user">
+        <%= link_to gravatar_for(comment.user, size: 30), comment.user %>
+        <div>
+            <%= link_to comment.user.name, comment.user %>
+            <%= link_to '@' + comment.user.username, comment.user %>
+            <span class="icon-clock"></span>
+            <span class="timestamp"><%= time_ago_in_words(comment.created_at).gsub('about ','') %></span>
+        </div>
+    </span>
+
+    <span class="content"><%= comment.content %></span>
+
+    <div class="comment-icons">
+        <% if current_user.liked? comment %>
+            <%= link_to '', like_comment_path(comment), class: 'icon-star vote', method: :put, remote: true, data: { id: comment.id } %>
+        <% else %>
+            <%= link_to '', like_comment_path(comment), class: 'icon-star-empty vote', method: :put, remote: true, data: { id: comment.id } %>
+        <% end %>
+        <%= fa_icon('star') %>
+        <span class="vote-count" data-id="<%= comment.id %>"><%= comment.get_likes.size %></span>
+        <% if current_user?(comment.user) %>
+            <%= link_to "", comment, method: :delete, class: 'icon-delete', data: { confirm: "Are you sure?" } %>
+        <% end %>
+    </div>
+</li>

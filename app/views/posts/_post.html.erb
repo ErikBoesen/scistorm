@@ -12,7 +12,7 @@
     <span class="content"><%= post.content %></span>
 
     <div class="post-icons">
-        <% if current_user.liked? post %>
+        <% if current_user.liked? post  %>
             <%= link_to '', like_post_path(post), class: 'icon-star vote', method: :put, remote: true, data: { id: post.id } %>
         <% else %>
             <%= link_to '', like_post_path(post), class: 'icon-star-empty vote', method: :put, remote: true, data: { id: post.id } %>
@@ -23,4 +23,8 @@
             <%= link_to "", post, method: :delete, class: 'icon-delete', data: { confirm: "Are you sure?" } %>
         <% end %>
     </div>
+    <ol class="post-comments">
+        <%= render post.comments %>
+    </ol>
+    <%= render 'shared/comment_form' %>
 </li>
